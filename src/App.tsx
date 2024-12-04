@@ -55,7 +55,7 @@ const TimerCalculator: React.FC = () => {
 
   return (
     <div className="timer-calculator">
-      <h2>Timer calculator tool</h2>
+      <h2>Timer calculator</h2>
 
       {/* Input for speed */}
       <label>
