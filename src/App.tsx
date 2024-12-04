@@ -81,7 +81,7 @@ const TimerCalculator: React.FC = () => {
           <div className="help-tooltip">
             (?)
             <span className="tooltip-text">
-              No helptip available for this field.
+              Currently this field does not affect the calculation.
             </span>
           </div>
         </span>
@@ -104,11 +104,7 @@ const TimerCalculator: React.FC = () => {
           <div className="help-tooltip">
             (?)
             <span className="tooltip-text">
-              The prescaler divides the clock frequency by 2^prescaler. For
-              example, if the clock speed is 16 MHz and the prescaler value is
-              3, the effective clock frequency for the timer becomes 16 MHz /
-              2^3 = 2 MHz. Adjust this value to control the timer’s resolution
-              and range.
+              The prescaler divides the clock frequency by 2^prescaler.
             </span>
           </div>
         </span>
@@ -133,7 +129,7 @@ const TimerCalculator: React.FC = () => {
           <div className="help-tooltip">
             (?)
             <span className="tooltip-text">
-              No helptip available for this field.
+              Total number of ticks the counter until reaches the flag.
             </span>
           </div>
         </span>
@@ -153,7 +149,7 @@ const TimerCalculator: React.FC = () => {
           <div className="help-tooltip">
             (?)
             <span className="tooltip-text">
-              No helptip available for this field.
+              Real time in seconds of timer running until a flag is set.
             </span>
           </div>
         </span>
@@ -173,7 +169,7 @@ const TimerCalculator: React.FC = () => {
           <div className="help-tooltip">
             (?)
             <span className="tooltip-text">
-              No helptip available for this field.
+              Expected new frequency after changing the counter settings.
             </span>
           </div>
         </span>
