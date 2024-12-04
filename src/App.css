@@ -1,38 +1,108 @@
-.App {
+/* General Page Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Container for the Calculator */
+  .timer-calculator {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px 30px;
+    width: 400px;
+    max-width: 90%;
+    box-sizing: border-box;
+  }
+  
+  /* Header Styling */
+  .timer-calculator h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Input and Dropdown Styling */
+  .timer-calculator label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .timer-calculator input,
+  .timer-calculator select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-top: 5px;
+    box-sizing: border-box;
+  }
+  
+  .timer-calculator input:focus,
+  .timer-calculator select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Section Separator */
+  .timer-calculator hr {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 20px 0;
+  }
+  
+  /* Button Styling (Optional) */
+  .timer-calculator button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 15px;
+  }
+  
+  .timer-calculator button:hover {
+    background-color: #0056b3;
+  }
+  
+  .footer {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #ddd;
   text-align: center;
+  font-size: 0.9em;
+  color: #777;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.footer a {
+  color: #007bff;
+  text-decoration: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.footer a:hover {
+  text-decoration: underline;
+}
+  /* Responsiveness */
+  @media (max-width: 500px) {
+    .timer-calculator {
+      padding: 15px 20px;
+    }
+  
+    .timer-calculator input,
+    .timer-calculator select {
+      font-size: 12px;
+    }
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
