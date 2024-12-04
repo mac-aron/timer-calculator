@@ -33,7 +33,7 @@ const TimerCalculator: React.FC = () => {
         const frequency = 1 / time;
 
         setTotalTicks(Math.round(ticks).toString());
-        setNewFrequency(frequency.toString());
+        setNewFrequency(frequency.toString());"Fixed input handling and improved validation"
       } else if (activeField === "newFrequency" && newFrequency !== "") {
         const frequency = parseFloat(newFrequency);
         const time = 1 / frequency;
