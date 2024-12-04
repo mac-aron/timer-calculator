@@ -4,7 +4,7 @@ const TimerCalculator: React.FC = () => {
   // State for inputs
   const [speed, setSpeed] = useState<number | undefined>(16000000);
   const [resolution, setResolution] = useState<number>(32);
-  const [prescaler, setPrescaler] = useState<number>(0);
+  const [prescaler, setPrescaler] = useState<number>(3);
 
   // State for results
   const [totalTicks, setTotalTicks] = useState<number | undefined>(undefined);
@@ -57,9 +57,16 @@ const TimerCalculator: React.FC = () => {
     <div className="timer-calculator">
       <h2>Timer calculator</h2>
 
-      {/* Input for speed */}
-      <label>
-        Clock speed (Hz)
+      <label style={{ display: "flex", marginBottom: "10px" }}>
+        <span style={{ display: "flex", alignItems: "center" }}>
+          Speed (Hz)
+          <div className="help-tooltip">
+            (?)
+            <span className="tooltip-text">
+              Enter the clock speed in Hz (e.g., 16000000 for 16 MHz).
+            </span>
+          </div>
+        </span>
         <input
           type="number"
           value={speed || ""}
@@ -68,8 +75,16 @@ const TimerCalculator: React.FC = () => {
       </label>
 
       {/* Dropdown for resolution */}
-      <label>
-        Counter resolution
+      <label style={{ display: "flex", marginBottom: "10px" }}>
+        <span style={{ display: "flex", alignItems: "center" }}>
+          Counter resolution
+          <div className="help-tooltip">
+            (?)
+            <span className="tooltip-text">
+              No helptip available for this field.
+            </span>
+          </div>
+        </span>
         <select
           value={resolution}
           onChange={(e) => setResolution(Number(e.target.value))}
@@ -83,8 +98,20 @@ const TimerCalculator: React.FC = () => {
       </label>
 
       {/* Dropdown for prescaler */}
-      <label>
-        Prescaler
+      <label style={{ display: "flex", marginBottom: "10px" }}>
+        <span style={{ display: "flex", alignItems: "center" }}>
+          Prescaler
+          <div className="help-tooltip">
+            (?)
+            <span className="tooltip-text">
+              The prescaler divides the clock frequency by 2^prescaler. For
+              example, if the clock speed is 16 MHz and the prescaler value is
+              3, the effective clock frequency for the timer becomes 16 MHz /
+              2^3 = 2 MHz. Adjust this value to control the timer’s resolution
+              and range.
+            </span>
+          </div>
+        </span>
         <select
           value={prescaler}
           onChange={(e) => setPrescaler(Number(e.target.value))}
@@ -100,8 +127,16 @@ const TimerCalculator: React.FC = () => {
       <hr />
 
       {/* Result fields */}
-      <label>
-        Total counter ticks
+      <label style={{ display: "flex", marginBottom: "10px" }}>
+        <span style={{ display: "flex", alignItems: "center" }}>
+          Total counter ticks
+          <div className="help-tooltip">
+            (?)
+            <span className="tooltip-text">
+              No helptip available for this field.
+            </span>
+          </div>
+        </span>
         <input
           type="number"
           value={totalTicks || ""}
@@ -112,8 +147,16 @@ const TimerCalculator: React.FC = () => {
         />
       </label>
 
-      <label>
-        Real time (s)
+      <label style={{ display: "flex", marginBottom: "10px" }}>
+        <span style={{ display: "flex", alignItems: "center" }}>
+          Real time (s)
+          <div className="help-tooltip">
+            (?)
+            <span className="tooltip-text">
+              No helptip available for this field.
+            </span>
+          </div>
+        </span>
         <input
           type="number"
           value={realTime || ""}
@@ -124,8 +167,16 @@ const TimerCalculator: React.FC = () => {
         />
       </label>
 
-      <label>
-        Expected frequency (Hz)
+      <label style={{ display: "flex", marginBottom: "10px" }}>
+        <span style={{ display: "flex", alignItems: "center" }}>
+          Expected frequency (Hz)
+          <div className="help-tooltip">
+            (?)
+            <span className="tooltip-text">
+              No helptip available for this field.
+            </span>
+          </div>
+        </span>
         <input
           type="number"
           value={newFrequency || ""}
