@@ -7,11 +7,9 @@ const TimerCalculator: React.FC = () => {
   const [prescaler, setPrescaler] = useState<number>(3);
 
   // State for results
-  const [totalTicks, setTotalTicks] = useState<number | undefined>(undefined);
-  const [realTime, setRealTime] = useState<number | undefined>(undefined);
-  const [newFrequency, setNewFrequency] = useState<number | undefined>(
-    undefined
-  );
+  const [totalTicks, setTotalTicks] = useState<string>(""); // Store as string
+  const [realTime, setRealTime] = useState<string>(""); // Allow decimals
+  const [newFrequency, setNewFrequency] = useState<string>(""); // Allow decimals
 
   // State to track the active field
   const [activeField, setActiveField] = useState<string | null>(null);
@@ -23,24 +21,26 @@ const TimerCalculator: React.FC = () => {
   // Recalculation logic
   useEffect(() => {
     if (speed && prescaler >= 0 && resolution) {
-      if (activeField === "totalTicks" && totalTicks !== undefined) {
-        const time = totalTicks / (speed / Math.pow(2, prescaler));
+      if (activeField === "totalTicks" && totalTicks !== "") {
+        const time = parseInt(totalTicks) / (speed / Math.pow(2, prescaler));
         const frequency = 1 / time;
 
-        setRealTime(time);
-        setNewFrequency(frequency);
-      } else if (activeField === "realTime" && realTime !== undefined) {
-        const ticks = realTime * (speed / Math.pow(2, prescaler));
-        const frequency = 1 / realTime;
+        setRealTime(time.toString());
+        setNewFrequency(frequency.toString());
+      } else if (activeField === "realTime" && realTime !== "") {
+        const time = parseFloat(realTime);
+        const ticks = time * (speed / Math.pow(2, prescaler));
+        const frequency = 1 / time;
 
-        setTotalTicks(ticks);
-        setNewFrequency(frequency);
-      } else if (activeField === "newFrequency" && newFrequency !== undefined) {
-        const time = 1 / newFrequency;
+        setTotalTicks(Math.round(ticks).toString());
+        setNewFrequency(frequency.toString());
+      } else if (activeField === "newFrequency" && newFrequency !== "") {
+        const frequency = parseFloat(newFrequency);
+        const time = 1 / frequency;
         const ticks = time * (speed / Math.pow(2, prescaler));
 
-        setRealTime(time);
-        setTotalTicks(ticks);
+        setRealTime(time.toString());
+        setTotalTicks(Math.round(ticks).toString());
       }
     }
   }, [
@@ -122,7 +122,7 @@ const TimerCalculator: React.FC = () => {
 
       <hr />
 
-      {/* Result fields */}
+      {/* Total Counter Ticks */}
       <label style={{ display: "flex", marginBottom: "10px" }}>
         <span style={{ display: "flex", alignItems: "center" }}>
           Total counter ticks
@@ -134,15 +134,19 @@ const TimerCalculator: React.FC = () => {
           </div>
         </span>
         <input
-          type="number"
-          value={totalTicks || ""}
+          type="text"
+          value={totalTicks}
           onChange={(e) => {
-            setTotalTicks(Number(e.target.value));
-            setActiveField("totalTicks");
+            const value = e.target.value;
+            if (/^\d*$/.test(value)) {
+              setTotalTicks(value);
+              setActiveField("totalTicks");
+            }
           }}
         />
       </label>
 
+      {/* Real Time */}
       <label style={{ display: "flex", marginBottom: "10px" }}>
         <span style={{ display: "flex", alignItems: "center" }}>
           Real time (s)
@@ -154,15 +158,19 @@ const TimerCalculator: React.FC = () => {
           </div>
         </span>
         <input
-          type="number"
-          value={realTime || ""}
+          type="text"
+          value={realTime}
           onChange={(e) => {
-            setRealTime(Number(e.target.value));
-            setActiveField("realTime");
+            const value = e.target.value;
+            if (/^(\d+(\.\d*)?|\.\d+)?$/.test(value)) {
+              setRealTime(value);
+              setActiveField("realTime");
+            }
           }}
         />
       </label>
 
+      {/* New Frequency */}
       <label style={{ display: "flex", marginBottom: "10px" }}>
         <span style={{ display: "flex", alignItems: "center" }}>
           Expected frequency (Hz)
@@ -174,11 +182,14 @@ const TimerCalculator: React.FC = () => {
           </div>
         </span>
         <input
-          type="number"
-          value={newFrequency || ""}
+          type="text"
+          value={newFrequency}
           onChange={(e) => {
-            setNewFrequency(Number(e.target.value));
-            setActiveField("newFrequency");
+            const value = e.target.value;
+            if (/^(\d+(\.\d*)?|\.\d+)?$/.test(value)) {
+              setNewFrequency(value);
+              setActiveField("newFrequency");
+            }
           }}
         />
       </label>
