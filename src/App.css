@@ -1,35 +1,59 @@
 /* General Page Styling */
 body {
-  font-family: "Courier New", Courier, monospace; /* Tech-like font */
-  background-color: #0a0a0a; /* Dark PCB-like background */
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+.pcb-theme {
+  font-family: "Courier New", Courier, monospace; /* Tech-like font */
+  background-color: #0a0a0a; /* Dark PCB-like background */
   color: #d4ffd4; /* Green text */
 }
 
-/* Timer Calculator Container */
+.white-theme {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
 .timer-calculator {
-  background-color: #001a00; /* Deep green background */
   border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0, 255, 0, 0.5), inset 0 0 10px rgba(0, 255, 0, 0.2); /* Outer glow + inner glow */
   padding: 20px 30px;
-  /* width: 400px; */
+  width: 400px;
   max-width: 100%;
   box-sizing: border-box;
+}
+
+/* Timer Calculator Container */
+.pcb-theme .timer-calculator {
+  background-color: #001a00; /* Deep green background */
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.5), inset 0 0 10px rgba(0, 255, 0, 0.2); /* Outer glow + inner glow */
   border: 1px solid rgba(0, 255, 0, 0.4); /* PCB-like border */
   text-shadow: 0 0 5px rgba(0, 255, 0, 0.6); /* Glowing text effect */
 }
 
-/* Header Styling */
+.white-theme .timer-calculator {
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
 .timer-calculator h2 {
   text-align: center;
   margin-bottom: 20px;
+}
+
+/* Header Styling */
+.pcb-theme .timer-calculator h2 {
   color: #00ff00; /* Bright green */
   text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+}
+
+.white-theme .timer-calculator h2 {
+  color: #333;
 }
 
 /* Input and Dropdown Styling */
@@ -40,13 +64,21 @@ body {
   font-weight: bold;
 }
 
+.white-theme .timer-calculator label {
+  color: #555;
+}
+
 .timer-calculator input,
 .timer-calculator select {
   padding: 10px;
-  border: 1px solid #00ff00; /* Green border */
   border-radius: 4px;
   font-size: 14px;
   margin-top: 5px;
+}
+
+.pcb-theme .timer-calculator input,
+.pcb-theme .timer-calculator select {
+  border: 1px solid #00ff00; /* Green border */
   background-color: #002800; /* PCB dark green field */
   color: #d4ffd4;
   text-shadow: 0 0 5px rgba(0, 255, 0, 0.6);
@@ -54,83 +86,143 @@ body {
   transition: box-shadow 0.3s ease;
 }
 
+.white-theme .timer-calculator input,
+.white-theme .timer-calculator select {
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
 .timer-calculator input:focus,
 .timer-calculator select:focus {
   outline: none;
+}
+
+.pcb-theme .timer-calculator input:focus,
+.pcb-theme .timer-calculator select:focus {
   box-shadow: 0 0 10px rgba(0, 255, 0, 0.8), inset 0 0 8px rgba(0, 255, 0, 0.5);
   border-color: #00ff00;
+}
+
+.white-theme .timer-calculator input:focus,
+.white-theme .timer-calculator select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
 }
 
 /* Section Separator */
 .timer-calculator hr {
   border: none;
-  border-top: 1px solid rgba(0, 255, 0, 0.3);
   margin: 20px 0;
+}
+
+.pcb-theme .timer-calculator hr {
+  border-top: 1px solid rgba(0, 255, 0, 0.3);
+}
+
+.white-theme .timer-calculator hr {
+  border-top: 1px solid #eee;
 }
 
 /* Button Styling */
 .timer-calculator button {
+  padding: 10px 15px;
+  font-size: 14px;
+  margin-top: 15px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pcb-theme .timer-calculator button {
   background-color: #002800;
   color: #d4ffd4;
   border: 1px solid #00ff00;
-  padding: 10px 15px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-  margin-top: 15px;
   box-shadow: 0 0 10px rgba(0, 255, 0, 0.8), inset 0 0 5px rgba(0, 255, 0, 0.3);
   transition: 0.3s all;
 }
 
-.timer-calculator button:hover {
+.white-theme .timer-calculator button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+}
+
+.pcb-theme .timer-calculator button:hover {
   background-color: #004d00;
   box-shadow: 0 0 20px rgba(0, 255, 0, 1), inset 0 0 10px rgba(0, 255, 0, 0.5);
 }
 
-/* Footer Styling */
+.white-theme .timer-calculator button:hover {
+  background-color: #0056b3;
+}
+
 .footer {
   margin-top: 20px;
   padding-top: 15px;
-  border-top: 1px solid rgba(0, 255, 0, 0.3);
   text-align: center;
   font-size: 0.9em;
+}
+.pcb-theme .footer {
+  border-top: 1px solid rgba(0, 255, 0, 0.3);
   color: #d4ffd4;
   text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
 }
+.white-theme .footer {
+  border-top: 1px solid #ddd;
+  color: #777;
+}
 
 .footer a {
-  color: #00ff00;
   text-decoration: none;
+}
+
+.pcb-theme .footer a {
+  color: #00ff00;
+}
+
+.white-theme .footer a {
+  color: #007bff;
 }
 
 .footer a:hover {
   text-decoration: underline;
+}
+
+.pcb-theme .footer a:hover {
   text-shadow: 0 0 10px rgba(0, 255, 0, 1);
 }
 
 /* Tooltip Container */
 .help-tooltip {
-    font-size: 0.8em;
+  font-size: 0.8em;
   position: relative;
   display: inline-block;
   margin-left: 10px;
+}
+
+.pcb-theme .help-tooltip {
   color: #00ff00; /* Match the green glow theme */
   font-weight: bold;
   cursor: pointer;
   text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
 }
 
-.help-tooltip:hover {
+.white-theme .help-tooltip {
+  color: #d0d0d0;
+  cursor: pointer;
+}
+
+.pcb-theme .help-tooltip:hover {
   color: #d4ffd4;
+}
+
+.white-theme .help-tooltip:hover {
+  color: #555;
 }
 
 /* Tooltip Text */
 .tooltip-text {
-    
   visibility: hidden;
   width: 220px;
-  background-color: #002800;
-  color: #d4ffd4;
   text-shadow: none;
   text-align: center;
   border-radius: 4px;
@@ -140,8 +232,20 @@ body {
   bottom: 125%; /* Position above the button */
   left: 50%;
   transform: translateX(-50%);
+}
+
+.pcb-theme .tooltip-text {
+  background-color: #002800;
+  color: #d4ffd4;
   box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
   border: 1px solid #00ff00;
+}
+
+.white-theme .tooltip-text {
+  font-weight: normal;
+  background-color: #f9f9f9;
+  color: #555;
+  border: 1px solid #ddd;
 }
 
 /* Tooltip Arrow */
@@ -153,7 +257,14 @@ body {
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
+}
+
+.pcb-theme .tooltip-text::after {
   border-color: #002800 transparent transparent transparent;
+}
+
+.white-theme .tooltip-text::after {
+  border-color: #ddd transparent transparent transparent;
 }
 
 /* Show Tooltip on Hover */
@@ -170,106 +281,67 @@ body {
   }
 }
 
-/*
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .timer-calculator {
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px 30px;
-    width: 400px;
-    max-width: 90%;
-    box-sizing: border-box;
-  }
-  
-  .timer-calculator h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  .timer-calculator label {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
-    font-weight: bold;
-    color: #555;
-  }
-  
-  .timer-calculator input,
-  .timer-calculator select {
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
-    margin-top: 5px;
-    box-sizing: border-box;
-  }
-  
-  .timer-calculator input:focus,
-  .timer-calculator select:focus {
-    outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
-  }
-  
-  .timer-calculator hr {
-    border: none;
-    border-top: 1px solid #eee;
-    margin: 20px 0;
-  }
-  
-  .timer-calculator button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-    margin-top: 15px;
-  }
-  
-  .timer-calculator button:hover {
-    background-color: #0056b3;
-  }
-  
-  @media (max-width: 500px) {
-    .timer-calculator {
-      padding: 15px 20px;
-    }
-  
-    .timer-calculator input,
-    .timer-calculator select {
-      font-size: 12px;
-    }
-  }
+/* Theme Toggle in Bottom-Right Corner */
+.theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000; /* Ensure it stays on top */
+}
 
-  .footer {
-    margin-top: 20px;
-    padding-top: 15px;
-    border-top: 1px solid #ddd;
-    text-align: center;
-    font-size: 0.9em;
-    color: #777;
-  }
-  
-  .footer a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .footer a:hover {
-    text-decoration: underline;
-  }
-*/
+/* Toggle Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 24px;
+}
+
+.slider:hover {
+  box-shadow: 0 0 20px rgba(0, 255, 0, 1), inset 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background-color: white;
+  transition: 0.4s;
+  left: 4px;
+  bottom: 3px;
+}
+
+input:checked + .slider {
+  background-color: rgba(0, 255, 0, 0.5); /* Green for PCB theme */
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9em;
+  font-weight: normal;
+  margin-top: 5px;
+}
