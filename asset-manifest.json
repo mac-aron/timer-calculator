@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/timer-calculator/static/css/main.72a15e11.css",
-    "main.js": "/timer-calculator/static/js/main.7b82a189.js",
+    "main.css": "/timer-calculator/static/css/main.88b1a2c9.css",
+    "main.js": "/timer-calculator/static/js/main.3a4df91e.js",
     "static/js/453.22171b70.chunk.js": "/timer-calculator/static/js/453.22171b70.chunk.js",
     "index.html": "/timer-calculator/index.html",
-    "main.72a15e11.css.map": "/timer-calculator/static/css/main.72a15e11.css.map",
-    "main.7b82a189.js.map": "/timer-calculator/static/js/main.7b82a189.js.map",
+    "main.88b1a2c9.css.map": "/timer-calculator/static/css/main.88b1a2c9.css.map",
+    "main.3a4df91e.js.map": "/timer-calculator/static/js/main.3a4df91e.js.map",
     "453.22171b70.chunk.js.map": "/timer-calculator/static/js/453.22171b70.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.72a15e11.css",
-    "static/js/main.7b82a189.js"
+    "static/css/main.88b1a2c9.css",
+    "static/js/main.3a4df91e.js"
   ]
 }
